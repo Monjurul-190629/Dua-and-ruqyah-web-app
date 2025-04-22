@@ -2,6 +2,10 @@ const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
 
+// Importing the db to check
+
+const db = require('./db/index')
+
 
 const app = express();
 const port = process.env.PORT || 5000;
