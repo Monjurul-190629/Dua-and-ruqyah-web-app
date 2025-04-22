@@ -10,6 +10,7 @@ const db = require('./db/index')
 
 const categoryRoutes = require('./routes/category.routes');
 const subcategoryRoutes = require('./routes/subcategory.routes');
+const duaRoutes = require('./routes/dua.routes')
 
 
 const app = express();
@@ -27,6 +28,7 @@ app.use(cors());
 
 app.use('/categories', categoryRoutes);
 app.use('/subcategories', subcategoryRoutes);
+app.use('/duas', duaRoutes);
 
 
 // Default route to check the server is running or not
