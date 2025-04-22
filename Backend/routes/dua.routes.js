@@ -20,10 +20,10 @@ router.get('/', (req, res) => {
 // duas based on subcat_id
 
 router.get('/:subcat_id', (req, res) => {
-    
+
     const { subcat_id } = req.params;
 
-    // Basic validation 
+    // validation 
     if (!subcat_id) {
         return res.status(400).json({ error: 'Subcategory ID is required' });
     }
