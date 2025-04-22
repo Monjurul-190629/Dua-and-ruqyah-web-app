@@ -6,6 +6,11 @@ require('dotenv').config();
 
 const db = require('./db/index')
 
+// Importing routes
+
+const categoryRoutes = require('./routes/category.routes');
+const subcategoryRoutes = require('./routes/subcategory.routes');
+
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -18,7 +23,10 @@ app.use(express.json());
 app.use(cors());
 
 
+// routes
 
+app.use('/categories', categoryRoutes);
+app.use('/subcategories', subcategoryRoutes);
 
 
 // Default route to check the server is running or not

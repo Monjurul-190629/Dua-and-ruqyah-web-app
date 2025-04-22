@@ -2,7 +2,7 @@ const Database = require('better-sqlite3');
 
 // define the path
 
-const dbPath = '../dua_main.sqlite';
+const dbPath = './dua_main.sqlite';
 
 
 // Now connection of Database
