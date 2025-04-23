@@ -5,6 +5,7 @@ import Loading from "./loading";
 import SectionHeader from "@/Component/SectionHeader";
 import CategoryHeading from "@/Component/CategoryHeading";
 import { useState } from "react";
+import Categories from "@/Component/Categories";
 
 export default function Home() {
   
@@ -23,6 +24,10 @@ export default function Home() {
         <div className='w-[350px]'>
           
           <CategoryHeading searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
+
+          <div>
+            <Categories/>
+          </div>
 
         </div>
 

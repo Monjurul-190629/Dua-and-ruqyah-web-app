@@ -1,5 +1,6 @@
+import axios from 'axios';
+
 export const getCategories = async () => {
-    const response = await fetch('https://dua-and-ruqyah-web-app-production.up.railway.app/categories');
-    const result = response.json();
-    return result;
-}
+  const response = await axios.get('https://dua-and-ruqyah-web-app-production.up.railway.app/categories');
+  return response.data;
+};
