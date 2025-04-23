@@ -1,9 +1,13 @@
+
+
 import Loading from '@/app/loading';
 import { fetchCategories } from '@/features/Category/categorySlice';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Image from 'next/image'
 import img from '../../public/category_icon.png'
+import SubCategories from './SubCategories';
+
 
 const Categories = () => {
 
@@ -25,6 +29,15 @@ const Categories = () => {
         content = <h1>{error}</h1>
     }
 
+    // Handle subcategories
+
+    const [selectedId, setSelectedId] = useState(1);
+
+    const handleSubCategories = (id) => {
+        setSelectedId(id);
+    }
+
+
     if (!isLoading && !isError && categories.length > 0) {
         content = <ul>
             {
@@ -34,7 +47,7 @@ const Categories = () => {
                     <li key={category.id}>
 
 
-                        <div className='flex mb-5 gap-5 justify-between cursor-pointer items-center bg-slate-200 rounded-lg'>
+                        <div className='flex mb-5 gap-5 justify-between cursor-pointer items-center bg-slate-200 rounded-lg' onClick={() => handleSubCategories(category.cat_id)} >
                             <div className="flex gap-6 mb-4 items-center pt-3 pl-2">
                                 <Image className="w-8" src={img} alt="Category icon" />
                                 <div>
@@ -52,7 +65,11 @@ const Categories = () => {
                             </div>
                         </div>
 
-
+                        <div className=''>
+                            {selectedId === category.cat_id && (
+                                <SubCategories id={category.cat_id} />
+                            )}
+                        </div>
 
                     </li>)
             }
